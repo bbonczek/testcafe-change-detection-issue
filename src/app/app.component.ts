@@ -6,17 +6,8 @@ import { Observable } from 'rxjs';
     selector: 'app-root',
     template: `
     <div class="container">
-        <mat-sidenav-container class="container">
-            <mat-sidenav class="sidenav" [mode]="'side'" [opened]="isSidenavOpened | async">
-                <p>Item 1</p>
-                <p>Item 2</p>
-                <p>Item 3</p>
-                <p>Item 4</p>
-            </mat-sidenav>
-            <mat-sidenav-content>
-                <p>Content goes here.</p>
-            </mat-sidenav-content>
-        </mat-sidenav-container>
+        <h3>Resize page, to check whether scren width is bigger than 800px, or not</h3>
+        <h1>{{isScreenBigEnough | async}}</h1>
     </div>
     `,
     styles: [`
@@ -42,9 +33,9 @@ import { Observable } from 'rxjs';
     `]
 })
 export class AppComponent {
-    private isSidenavOpened: Observable<boolean>;
+    private isScreenBigEnough: Observable<boolean>;
 
     constructor(public service: WindowSizeService) {
-        this.isSidenavOpened = service.resizeEvent;
+        this.isScreenBigEnough = service.resizeEvent;
     }
 }
