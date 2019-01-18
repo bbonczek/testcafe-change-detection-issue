@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "testcafe": "testcafe chrome e2e/testcafe-buggy-test.test.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
